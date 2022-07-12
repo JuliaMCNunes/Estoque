@@ -50,5 +50,7 @@ alter table Saida_Produtos add column dataEntrada timestamp;
 
 select * from Produtos;
 select * from Fabricantes;
+select * from Entrada;
+select * from Entrada_Produtos;
 
 update Produtos set quantidade = 0 where cod = 1;
