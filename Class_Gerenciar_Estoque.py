@@ -12,6 +12,7 @@ class Gerenciador:
         comando_sql = f'insert into Entrada (observacoes) value ("{obj_entrada.observacoes}")'
         self.cursorzinho.execute(comando_sql)
         self.conexao.commit()
+        print('cheguei aqui')
         try:
             comando_sql = f'insert into Entrada_Produtos (cod_entrada, cod_produtos) value ({cod_entrada}, {cod_produtos})'
             self.cursorzinho.execute(comando_sql)
@@ -20,7 +21,7 @@ class Gerenciador:
         else:
             self.conexao.commit()
             try:
-                comando_sql = f'update Produtos set quantidade = {info} where cod = {codi}'
+                comando_sql = f'update Produtos set quantidade = quantidade + {info} where cod = {codi}'
                 self.cursorzinho.execute(comando_sql)
             except:
                 print('\nCódigo não encontrado!\n')
@@ -40,7 +41,7 @@ class Gerenciador:
         else:
             self.conexao.commit()
             try:
-                comando_sql = f'update Produtos set quantidade = {info} where cod = {codi}'
+                comando_sql = f'update Produtos set quantidade = quantidade - {info} where cod = {codi}'
                 self.cursorzinho.execute(comando_sql)
             except:
                 print('\nCódigo não encontrado!\n')

@@ -83,9 +83,13 @@ class Menu:
                     catalogo.excluir_informacoes(selecionar, codi)
                     
             elif selecao == '6':
-                codi = int(input('\nInforme o código do produto que está sendo adicionado no estoque: '))
+                cod = None
+                observacoes = input('Adicione alguma observação a entrada do produto: ')
+                cod_entrada = int(input('Informe o código do pedido: '))
+                cod_produtos = int(input('Informe o código do produto requerido: '))
+                codi = int(input('Confirme o código do produto: '))
                 info = int(input('Informe a quantidade do produto: '))
-                catalogo1.entrada(info, codi)
+                catalogo1.entrada(cod, observacoes, cod_entrada, cod_produtos, info, codi)
                 
             elif selecao == '7':
                 codi = int(input('\nInforme o código do produto que está sendo retirado do estoque: '))
