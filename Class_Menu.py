@@ -82,11 +82,15 @@ class Menu:
                     codi = int(input('\nInforme o código do fabricante a ser deletado do sistema: '))
                     catalogo.excluir_informacoes(selecionar, codi)
                     
-            #elif selecao == '6':
-                #catalogo1.entrada()
+            elif selecao == '6':
+                codi = int(input('\nInforme o código do produto que está sendo adicionado no estoque: '))
+                info = int(input('Informe a quantidade do produto: '))
+                catalogo1.entrada(info, codi)
                 
-            #elif selecao == '7':
-                #catalogo1.saida()
+            elif selecao == '7':
+                codi = int(input('\nInforme o código do produto que está sendo retirado do estoque: '))
+                info = int(input('Informe a quantidade do produto: '))
+                catalogo1.saida(info, codi)
                 
             #elif selecao == '8':
                 #catalogo1.imprimir_t()

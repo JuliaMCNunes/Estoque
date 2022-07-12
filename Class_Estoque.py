@@ -49,20 +49,32 @@ class Estoque:
     def alterar_informacoes(self, selecionar, atributo, info, codi):
         if selecionar == '1':
             comando_sql = f'update Produtos set {atributo} = "{info}" where cod = {codi}'
-            self.cursorzinho.execute(comando_sql)
-            self.conexao.commit()
+            try:
+                self.cursorzinho.execute(comando_sql)
+                self.conexao.commit()
+            except:
+                print('\nCódigo não encontrado!\n')
         elif selecionar == '2':
             comando_sql = f'update Fabricantes set {atributo} = "{info}" where codigo = {codi}'
-            self.cursorzinho.execute(comando_sql)
-            self.conexao.commit()
+            try:
+                self.cursorzinho.execute(comando_sql)
+                self.conexao.commit()
+            except:
+                print('\nCódigo não encontrado!\n')
         
     # Delete
     def excluir_informacoes(self, selecionar, codi):
         if selecionar == '1':
             comando_sql = f'delete from Produtos where cod = {codi}'
-            self.cursorzinho.execute(comando_sql)
-            self.conexao.commit()
+            try:
+                self.cursorzinho.execute(comando_sql)
+                self.conexao.commit()
+            except:
+                print('\nCódigo não encontrado!\n')
         elif selecionar == '2':
             comando_sql = f'delete from Fabricantes where codigo = {codi}'
-            self.cursorzinho.execute(comando_sql)
-            self.conexao.commit()
+            try:
+                self.cursorzinho.execute(comando_sql)
+                self.conexao.commit()
+            except:
+                print('\nCódigo não encontrado!\n')
