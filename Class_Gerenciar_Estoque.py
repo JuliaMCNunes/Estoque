@@ -52,7 +52,7 @@ class Gerenciador:
                 comando_sql = f'update Produtos set quantidade = quantidade - {info} where cod = {cod_produtos}'
                 self.cursorzinho.execute(comando_sql)
                 self.conexao.commit()
-                print('\nBaixa no sistema confimada!')
+                print('\nBaixa no sistema confirmada!')
             else:
                 print('\nSaida negada!')
                 print('\nO valor solicitado excede a quantidade no estoque.\n')
