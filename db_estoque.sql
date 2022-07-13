@@ -56,5 +56,3 @@ select * from Saida;
 select * from Saida_Produtos;
 
 update Produtos set quantidade = 0 where cod = 3;
-drop table Entrada_Produtos;
-drop table Entrada;
