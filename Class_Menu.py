@@ -3,6 +3,8 @@ from Class_Gerenciar_Estoque import *
 
 class Menu:
     def __init__(self):
+        self.conexao = mysql.connector.connect(host='localhost', user='root', password='q1w2e3', database='estoque')
+        self.cursorzinho = self.conexao.cursor()
         catalogo = Estoque()
         catalogo1 = Gerenciador()
         catalogo1.gerenciar = catalogo
@@ -84,17 +86,17 @@ class Menu:
                     
             elif selecao == '6':
                 cod = None
-                observacoes = input('Adicione alguma observação a entrada do produto: ')
-                cod_entrada = int(input('Informe o código do pedido: '))
-                cod_produtos = int(input('Informe o código do produto requerido: '))
-                codi = int(input('Confirme o código do produto: '))
+                observacoes = input('\nAdicione alguma observação a entrada do produto: ')
+                cod_produtos = int(input('Informe o código do produto que está dando entrada no estoque: '))
                 info = int(input('Informe a quantidade do produto: '))
-                catalogo1.entrada(cod, observacoes, cod_entrada, cod_produtos, info, codi)
+                catalogo1.entrada(cod, observacoes, cod_produtos, info)
                 
             elif selecao == '7':
-                codi = int(input('\nInforme o código do produto que está sendo retirado do estoque: '))
+                cod = None
+                observacoes = input('\nAdicione alguma observação a saida do produto: ')
+                cod_produtos = int(input('Informe o código do produto que está sendo retirado do estoque: '))
                 info = int(input('Informe a quantidade do produto: '))
-                catalogo1.saida(info, codi)
+                catalogo1.saida(cod, observacoes, cod_produtos, info)
                 
             #elif selecao == '8':
                 #catalogo1.imprimir_t()
